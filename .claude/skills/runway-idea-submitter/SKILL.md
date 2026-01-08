@@ -40,13 +40,48 @@ If the user provides a very brief description, ask follow-up questions to unders
 - Who is it for?
 - What makes it interesting or novel?
 
-### Step 2: Refine the Idea
+### Step 2: Background Research
+
+Research similar projects, products, and solutions to understand the landscape. Use web search to find:
+
+1. **Search for existing solutions:**
+   ```
+   "Let me search for similar projects and products to understand what's already out there..."
+   ```
+   Use WebSearch to find:
+   - Existing products or apps solving similar problems
+   - Open source projects on GitHub
+   - Recent articles or discussions about this space
+
+2. **Analyze findings:**
+   - What are the key competitors/similar projects?
+   - What features do they offer?
+   - What are their limitations or pain points?
+   - What gaps exist in the market?
+
+3. **Identify differentiation:**
+   - How is the user's idea different?
+   - What unique value does it provide?
+   - What problem does it solve better than existing solutions?
+
+4. **Document in Background Research section:**
+   - List 2-5 similar products/projects with brief descriptions
+   - Note their strengths and weaknesses
+   - Explain how the user's idea is different or better
+   - Identify market opportunities
+
+### Step 3: Refine the Idea
 
 Guide the user through expanding their idea according to the template structure. For each section, ask relevant questions:
 
 **Idea Overview:**
 - "Can you describe your idea in 2-3 sentences?"
 - "What's the core value proposition?"
+
+**Background Research:**
+- Based on research findings, summarize:
+  - "Here are some similar projects I found: [list]"
+  - "Your idea differs because: [explain]"
 
 **Detailed Description:**
 - "What specific problem does this solve?"
@@ -65,10 +100,7 @@ Guide the user through expanding their idea according to the template structure.
 **References (Optional):**
 - "Are there any related projects, articles, or research to reference?"
 
-**Contributors:**
-- "What's your GitHub username for attribution?"
-
-### Step 3: Generate Filename and Branch Name
+### Step 4: Generate Filename and Branch Name
 
 From the idea title, create:
 - **Filename**: Convert to lowercase, replace spaces with hyphens
@@ -76,7 +108,7 @@ From the idea title, create:
 - **Branch name**: Prefix with `idea/`
   - Example: `idea/ai-code-reviewer`
 
-### Step 4: Create the Git Branch
+### Step 5: Create the Git Branch
 
 Create a new branch for the idea:
 
@@ -84,11 +116,49 @@ Create a new branch for the idea:
 git checkout -b idea/your-idea-name
 ```
 
-### Step 5: Write the Idea File
+### Step 6: Get Contributor Information (Username and Email)
 
-Create the idea file at `ideas/<filename>.md` following the template structure from `references/template.md`. Ensure all sections are filled with the refined content.
+Before writing the idea file, get the user's GitHub username and email for the Contributors section. Try these methods in order:
 
-### Step 6: Commit and Push
+1. **Try GitHub CLI:**
+   ```bash
+   gh api user --jq '.login' 2>/dev/null
+   gh api user --jq '.email' 2>/dev/null
+   ```
+
+2. **Try local git config:**
+   ```bash
+   git config --local github.user
+   git config --local github.email
+   ```
+
+3. **Try global git config:**
+   ```bash
+   git config --global github.user
+   git config --global github.email
+   ```
+
+4. **Try parsing remote URL:**
+   ```bash
+   git remote get-url origin 2>/dev/null | sed -n 's/.*:\(.*\)\/.*/\1/p' | head -1
+   ```
+
+5. **If all fail, ask the user:**
+   ```
+   "What's your GitHub username and email? (I'll use this in the Contributors section)"
+   ```
+
+6. **If user provides information manually, remember it locally for future use:**
+   ```bash
+   git config --local github.user <username>
+   git config --local github.email <email>
+   ```
+
+### Step 7: Write the Idea File
+
+Create the idea file at `ideas/<filename>.md` following the template structure from `references/template.md`. Ensure all sections are filled with the refined content, and use the actual GitHub username obtained in Step 6 for the Contributors section (format: `[@username] - Idea Author`).
+
+### Step 8: Commit and Push
 
 Commit with the standardized format:
 
@@ -98,7 +168,7 @@ git commit -m "[IDEA] Add <idea title>"
 git push origin idea/<branch-name>
 ```
 
-### Step 8: Create Pull Request
+### Step 9: Create Pull Request
 
 Create a PR with:
 - **Title**: `[IDEA] <Idea Title>`

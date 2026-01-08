@@ -9,6 +9,14 @@ All idea files must follow this structure from TEMPLATE.md:
 
 [Briefly describe what your idea is and why it's valuable]
 
+## Background Research
+
+[Research similar projects, products, and solutions:]
+- What similar products or projects exist?
+- What are their strengths and weaknesses?
+- How is your idea different or better?
+- What market gaps or opportunities exist?
+
 ## Detailed Description
 
 [Elaborate on your idea:]
@@ -46,6 +54,13 @@ All idea files must follow this structure from TEMPLATE.md:
 - Clear, concise description (2-3 sentences)
 - Explain what the idea is
 - Explain why it's valuable
+
+### Background Research
+Research and document:
+- **Existing solutions**: What similar products, projects, or tools exist?
+- **Competitive analysis**: What do they do well? What could be improved?
+- **Differentiation**: How is your idea different or better?
+- **Market opportunity**: What gaps or opportunities does your idea address?
 
 ### Detailed Description
 Must address these three questions:
