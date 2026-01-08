@@ -98,7 +98,7 @@ This project collects creative ideas from everyone. Anyone can contribute ideas 
 
 ```
 ideas/
-├── README.md              # 本文档 (This document)
+├── README.md              # 主文档 (Main document)
 ├── ideas/                 # 待投票的创意 (Ideas awaiting votes)
 │   └── *.md              # 创意文件 (Idea files)
 ├── projects/             # 已实施的项目 (Implemented projects)
