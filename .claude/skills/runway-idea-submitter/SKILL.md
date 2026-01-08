@@ -98,10 +98,11 @@ git commit -m "[IDEA] Add <idea title>"
 git push origin idea/<branch-name>
 ```
 
-### Step 7: Create Pull Request
+### Step 8: Create Pull Request
 
 Create a PR with:
 - **Title**: `[IDEA] <Idea Title>`
+- **Label**: Always add the `idea` label
 - **Description**: Include:
   - Brief overview of the idea
   - Why this idea is valuable
@@ -110,7 +111,7 @@ Create a PR with:
 Use the `gh` CLI:
 
 ```bash
-gh pr create --title "[IDEA] <Idea Title>" --body "<description>"
+gh pr create --title "[IDEA] <Idea Title>" --label "idea" --body "<description>"
 ```
 
 ## Reference Materials
