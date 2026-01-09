@@ -214,6 +214,8 @@ Use the `gh` CLI:
 gh pr create --title "[IDEA] <Idea Title>" --label "idea" --body "<description>"
 ```
 
+**Note:** Do NOT add any AI-generated signatures like "🤖 Generated with Claude Code" to the PR description.
+
 ## Reference Materials
 
 The following bundled resources provide detailed guidance:
