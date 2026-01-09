@@ -158,7 +158,37 @@ Before writing the idea file, get the user's GitHub username and email for the C
 
 Create the idea file at `ideas/<filename>.md` following the template structure from `references/template.md`. Ensure all sections are filled with the refined content, and use the actual GitHub username obtained in Step 6 for the Contributors section (format: `[@username] - Idea Author`).
 
-### Step 8: Commit and Push
+### Step 8: Confirm Idea File Content
+
+**IMPORTANT: Before committing, ask the user to confirm the idea file content.**
+
+1. **Display the file path:**
+   ```
+   "I've created the idea file at: ideas/<filename>.md"
+   ```
+
+2. **Read and display the file content:**
+   Use the Read tool to show the full content of the idea file to the user.
+
+3. **Ask for confirmation:**
+   ```
+   "Please review the content above. Does this accurately capture your idea?
+    If you'd like any changes, let me know which sections to modify.
+    (Reply 'yes' or 'looks good' to proceed with submission)"
+   ```
+
+4. **If user requests changes:**
+   - Use Edit tool to modify the specific sections
+   - Re-read the file and ask for confirmation again
+   - Repeat until user approves
+
+5. **Only proceed after user confirms:**
+   - Wait for explicit user approval (e.g., "yes", "looks good", "approved")
+   - Then continue to Step 9
+
+This step ensures understanding alignment between the user and the AI before making any commits or PRs.
+
+### Step 9: Commit and Push
 
 Commit with the standardized format:
 
@@ -168,7 +198,7 @@ git commit -m "[IDEA] Add <idea title>"
 git push origin idea/<branch-name>
 ```
 
-### Step 9: Create Pull Request
+### Step 10: Create Pull Request
 
 Create a PR with:
 - **Title**: `[IDEA] <Idea Title>`
@@ -223,4 +253,20 @@ local development, or something else?
 
 Claude: Great! I'll now create the branch `idea/ai-code-reviewer`,
 write your idea file, and submit the PR. One moment...
+
+[Creates branch and writes idea file...]
+
+Claude: I've created the idea file at: ideas/ai-code-reviewer.md
+Here's the content:
+
+[Displays full file content...]
+
+Please review the content above. Does this accurately capture your idea?
+If you'd like any changes, let me know which sections to modify.
+
+User: Looks good!
+
+Claude: Perfect! Proceeding with commit and PR submission...
+
+[Commits, pushes, and creates PR...]
 ```
